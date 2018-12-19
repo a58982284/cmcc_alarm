@@ -1,0 +1,380 @@
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                         • MobaXterm 9.2 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ ➤ SSH session to root@192.168.0.102                                │
+     │   • SSH compression : ✔                                            │
+     │   • SSH-browser     : ✔                                            │
+     │   • X11-forwarding  : ✔  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : ✔  (automatically set on remote server)      │
+     │                                                                    │
+     │ ➤ For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Welcome to Ubuntu 18.04.1 LTS (GNU/Linux 4.15.0-36-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Dec 19 05:59:45 UTC 2018
+
+  System load:  3.0                 Processes:                 270
+  Usage of /:   11.9% of 915.40GB   Users logged in:           1
+  Memory usage: 4%                  IP address for enp4s0:     192.168.3.200
+  Swap usage:   0%                  IP address for ovs_pub_br: 192.168.0.102
+
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+137 packages can be updated.
+0 updates are security updates.
+
+Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings
+
+
+*** System restart required ***
+Last login: Wed Dec 19 05:56:58 2018 from 192.168.0.126
+root@dev_workstation:~# /to-lab.sh
+-bash: /to-lab.sh: No such file or directory
+root@dev_workstation:~# ./to-lab.sh
+Last login: Wed Dec 19 13:50:31 2018 from 127.0.0.1
+$ ./to-e2e.sh
+root@10.163.235.11's password:
+Welcome to Ubuntu 14.04.4 LTS (GNU/Linux 4.2.0-27-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+  System information as of Wed Dec 19 13:59:57 CST 2018
+
+  System load:                0.04
+  Usage of /:                 89.5% of 848.23GB
+  Memory usage:               6%
+  Swap usage:                 0%
+  Processes:                  558
+  Users logged in:            1
+  IP address for em1:         10.163.235.11
+  IP address for br-fw-admin: 192.168.40.19
+  IP address for br-vfuel2:   192.168.50.19
+  IP address for br-vfuel3:   192.168.60.19
+  IP address for virbr0:      192.168.122.1
+
+  => / is using 89.5% of 848.23GB
+
+  Graph this data and manage this system at:
+    https://landscape.canonical.com/
+
+280 packages can be updated.
+213 updates are security updates.
+
+New release '16.04.5 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Wed Dec 19 13:59:57 2018 from 100.98.22.53
+root@CEE-E2E-fuelhost:~# ssh fuel
+
+Attention! Unauthorized remote access is strictly prohibited!
+
+root@fuel's password:
+Last login: Wed Dec 19 13:52:08 2018 from 192.168.40.19
+[root@fuel ~]# nova list
+ERROR (CommandError): You must provide a username or user ID via --os-username, --os-user-id, env[OS_USERNAME] or env[OS_USER_ID]
+[root@fuel ~]# fuel node
+id | status | name           | cluster | ip            | mac               | roles             | pending_roles | online | group_id
+---+--------+----------------+---------+---------------+-------------------+-------------------+---------------+--------+---------
+ 7 | ready  | cic-2          |       1 | 192.168.40.36 | 0a:18:55:26:9f:40 | controller, mongo |               |      1 |        1
+ 4 | ready  | compute-1209-3 |       1 | 192.168.40.31 | 30:e1:71:5f:a0:00 | compute, virt     |               |      1 |        1
+ 1 | ready  | compute-1209-2 |       1 | 192.168.40.30 | 30:e1:71:5f:1c:34 | compute, virt     |               |      1 |        1
+ 6 | ready  | cic-3          |       1 | 192.168.40.35 | 2a:9d:44:ea:9b:49 | controller, mongo |               |      1 |        1
+ 3 | ready  | compute-1209-4 |       1 | 192.168.40.33 | 30:e1:71:5f:bf:18 | compute, virt     |               |      1 |        1
+ 5 | ready  | cic-1          |       1 | 192.168.40.34 | 42:c3:82:03:67:46 | controller, mongo |               |      1 |        1
+ 2 | ready  | compute-1209-5 |       1 | 192.168.40.32 | 30:e1:71:5f:3c:b4 | compute           |               |      1 |        1
+[root@fuel ~]# ssh compute-1209-3
+Warning: Permanently added 'compute-1209-3' (ECDSA) to the list of known hosts.
+
+Attention! Unauthorized remote access is strictly prohibited!
+
+Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-101-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+Last login: Wed Dec 19 13:37:06 2018 from 192.168.40.11
+root@compute-1209-3:~# watch list
+root@compute-1209-3:~# ^C
+root@compute-1209-3:~# ^C
+root@compute-1209-3:~# ^C
+root@compute-1209-3:~# virsh list
+ Id    Name                           State
+----------------------------------------------------
+ 61    cic-2_vm                       running
+ 62    instance-00000009              running
+ 63    instance-00000022              running
+
+root@compute-1209-3:~# nova list --all  --fields status | grep instance-00000009 | awk -F"|" '{print $3}' | tr -d ' '
+ERROR (CommandError): You must provide a username or user ID via --os-username, --os-user-id, env[OS_USERNAME] or env[OS_USER_ID]
+root@compute-1209-3:~# ssh cic-1
+The authenticity of host 'cic-1 (192.168.42.24)' can't be established.
+ECDSA key fingerprint is 1d:89:dd:52:87:03:3a:19:c8:84:14:de:71:e7:09:c6.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'cic-1,192.168.42.24' (ECDSA) to the list of known hosts.
+
+Attention! Unauthorized remote access is strictly prohibited!
+
+root@cic-1's password:
+Permission denied, please try again.
+root@cic-1's password:
+Received disconnect from 192.168.42.24: 2: Too many authentication failures for root
+root@compute-1209-3:~# logout
+Connection to compute-1209-3 closed.
+[root@fuel ~]# ssh cic-1
+Warning: Permanently added 'cic-1' (ECDSA) to the list of known hosts.
+
+Attention! Unauthorized remote access is strictly prohibited!
+
+Welcome to Ubuntu 14.04.5 LTS (GNU/Linux 4.4.0-101-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+Last login: Wed Dec 19 14:07:08 2018 from 192.168.40.11
+root@cic-1:~# nova list --all
+ERROR (CommandError): You must provide a username or user ID via --os-username, --os-user-id, env[OS_USERNAME] or env[OS_USER_ID]
+root@cic-1:~# source /root/openrc
+root@cic-1:~# nova list --all
+WARNING: Option "--all_tenants" is deprecated; use "--all-tenants"; this option will be removed in novaclient 3.3.0.
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+-------                               ---------------------------+
+| ID                                   | Name          | Tenant ID                        | Status | Task State | Power State | Networ                               ks                         |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+-------                               ---------------------------+
+| 40b19a0d-7a19-497d-be68-2e9c194ac237 | test_vm1      | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2                               900=10.0.29.17             |
+| 07e7bafb-f95e-425e-a9e0-ba140e4a1556 | vm1           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2                               900=10.0.29.8, 10.0.29.9   |
+| 235cda77-5e2f-4ce3-8c4e-6f60ea4cae9d | vm2           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2                               900=10.0.29.12             |
+| fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | vm_raw        | 87772029bed54fb0b36bdb966b6cbd1e | ERROR  | -          | Running     | test-2                               900=10.0.29.11             |
+| 1c92b57d-775c-42b1-b888-f5cd0924d688 | vm_raw2       | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2                               900=10.0.29.14             |
+| 8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca | watchdog-test | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2                               900=10.0.29.18, 10.0.29.19 |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+-------                               ---------------------------+
+root@cic-1:~# nova list --all
+WARNING: Option "--all_tenants" is deprecated; use "--all-tenants"; this option will be removed in novaclient 3.3.0.
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+| ID                                   | Name          | Tenant ID                        | Status | Task State | Power State | Networks                         |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+| 40b19a0d-7a19-497d-be68-2e9c194ac237 | test_vm1      | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.17             |
+| 07e7bafb-f95e-425e-a9e0-ba140e4a1556 | vm1           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.8, 10.0.29.9   |
+| 235cda77-5e2f-4ce3-8c4e-6f60ea4cae9d | vm2           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.12             |
+| fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | vm_raw        | 87772029bed54fb0b36bdb966b6cbd1e | ERROR  | -          | Running     | test-2900=10.0.29.11             |
+| 1c92b57d-775c-42b1-b888-f5cd0924d688 | vm_raw2       | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.14             |
+| 8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca | watchdog-test | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.18, 10.0.29.19 |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+root@cic-1:~# nova list --all-tenants --fields status | grep fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | awk -F"|" '{print $3}' | tr -d ' '
+ERROR
+root@cic-1:~# nova list --all-tenants --fields status | grep fb5b124a-8bd2-4faf-b50b-64ca64fe5c78
+| fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | ERROR  |
+root@cic-1:~# nova list --all-tenants --fields Tenanat ID | grep fb5b124a-8bd2-4faf-b50b-64ca64fe5c78
+usage: nova [--version] [--debug] [--os-cache] [--timings]
+            [--os-region-name <region-name>] [--service-type <service-type>]
+            [--service-name <service-name>]
+            [--volume-service-name <volume-service-name>]
+            [--os-endpoint-type <endpoint-type>]
+            [--os-compute-api-version <compute-api-ver>]
+            [--bypass-url <bypass-url>] [--insecure]
+            [--os-cacert <ca-certificate>] [--os-cert <certificate>]
+            [--os-key <key>] [--timeout <seconds>] [--os-auth-type <name>]
+            [--os-auth-url OS_AUTH_URL] [--os-domain-id OS_DOMAIN_ID]
+            [--os-domain-name OS_DOMAIN_NAME] [--os-project-id OS_PROJECT_ID]
+            [--os-project-name OS_PROJECT_NAME]
+            [--os-project-domain-id OS_PROJECT_DOMAIN_ID]
+            [--os-project-domain-name OS_PROJECT_DOMAIN_NAME]
+            [--os-trust-id OS_TRUST_ID]
+            [--os-default-domain-id OS_DEFAULT_DOMAIN_ID]
+            [--os-default-domain-name OS_DEFAULT_DOMAIN_NAME]
+            [--os-user-id OS_USER_ID] [--os-username OS_USERNAME]
+            [--os-user-domain-id OS_USER_DOMAIN_ID]
+            [--os-user-domain-name OS_USER_DOMAIN_NAME]
+            [--os-password OS_PASSWORD]
+            <subcommand> ...
+error: unrecognized arguments: ID
+Try 'nova help ' for more information.
+root@cic-1:~# nova list --all-tenants --fields | grep fb5b124a-8bd2-4faf-b50b-64ca64fe5c78
+usage: nova list [--reservation-id <reservation-id>] [--ip <ip-regexp>]
+                 [--ip6 <ip6-regexp>] [--name <name-regexp>]
+                 [--instance-name <name-regexp>] [--status <status>]
+                 [--flavor <flavor>] [--image <image>] [--host <hostname>]
+                 [--all-tenants [<0|1>]] [--tenant [<tenant>]]
+                 [--user [<user>]] [--deleted] [--fields <fields>] [--minimal]
+                 [--sort <key>[:<direction>]] [--marker <marker>]
+                 [--limit <limit>]
+error: argument --fields: expected one argument
+Try 'nova help list' for more information.
+root@cic-1:~# nova list --all-tenants --fields status | grep fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | awk -F"|" '{print $3}' | tr -d ' '
+ERROR
+root@cic-1:~# nova list --all-tenants --fields status
++--------------------------------------+--------+
+| ID                                   | Status |
++--------------------------------------+--------+
+| 07e7bafb-f95e-425e-a9e0-ba140e4a1556 | ACTIVE |
+| 1c92b57d-775c-42b1-b888-f5cd0924d688 | ACTIVE |
+| 235cda77-5e2f-4ce3-8c4e-6f60ea4cae9d | ACTIVE |
+| 40b19a0d-7a19-497d-be68-2e9c194ac237 | ACTIVE |
+| 8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca | ACTIVE |
+| fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | ERROR  |
++--------------------------------------+--------+
+root@cic-1:~# nova list --all-tenants --fields
+usage: nova list [--reservation-id <reservation-id>] [--ip <ip-regexp>]
+                 [--ip6 <ip6-regexp>] [--name <name-regexp>]
+                 [--instance-name <name-regexp>] [--status <status>]
+                 [--flavor <flavor>] [--image <image>] [--host <hostname>]
+                 [--all-tenants [<0|1>]] [--tenant [<tenant>]]
+                 [--user [<user>]] [--deleted] [--fields <fields>] [--minimal]
+                 [--sort <key>[:<direction>]] [--marker <marker>]
+                 [--limit <limit>]
+error: argument --fields: expected one argument
+Try 'nova help list' for more information.
+root@cic-1:~# nova list --all-tenants
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+| ID                                   | Name          | Tenant ID                        | Status | Task State | Power State | Networks                         |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+| 40b19a0d-7a19-497d-be68-2e9c194ac237 | test_vm1      | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.17             |
+| 07e7bafb-f95e-425e-a9e0-ba140e4a1556 | vm1           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.8, 10.0.29.9   |
+| 235cda77-5e2f-4ce3-8c4e-6f60ea4cae9d | vm2           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.12             |
+| fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | vm_raw        | 87772029bed54fb0b36bdb966b6cbd1e | ERROR  | -          | Running     | test-2900=10.0.29.11             |
+| 1c92b57d-775c-42b1-b888-f5cd0924d688 | vm_raw2       | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.14             |
+| 8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca | watchdog-test | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.18, 10.0.29.19 |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+root@cic-1:~# nova list --all-tenants --fields name
++--------------------------------------+---------------+
+| ID                                   | Name          |
++--------------------------------------+---------------+
+| 40b19a0d-7a19-497d-be68-2e9c194ac237 | test_vm1      |
+| 07e7bafb-f95e-425e-a9e0-ba140e4a1556 | vm1           |
+| 235cda77-5e2f-4ce3-8c4e-6f60ea4cae9d | vm2           |
+| fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | vm_raw        |
+| 1c92b57d-775c-42b1-b888-f5cd0924d688 | vm_raw2       |
+| 8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca | watchdog-test |
++--------------------------------------+---------------+
+root@cic-1:~# nova list --all-tenants --fields tenant ID
+usage: nova [--version] [--debug] [--os-cache] [--timings]
+            [--os-region-name <region-name>] [--service-type <service-type>]
+            [--service-name <service-name>]
+            [--volume-service-name <volume-service-name>]
+            [--os-endpoint-type <endpoint-type>]
+            [--os-compute-api-version <compute-api-ver>]
+            [--bypass-url <bypass-url>] [--insecure]
+            [--os-cacert <ca-certificate>] [--os-cert <certificate>]
+            [--os-key <key>] [--timeout <seconds>] [--os-auth-type <name>]
+            [--os-auth-url OS_AUTH_URL] [--os-domain-id OS_DOMAIN_ID]
+            [--os-domain-name OS_DOMAIN_NAME] [--os-project-id OS_PROJECT_ID]
+            [--os-project-name OS_PROJECT_NAME]
+            [--os-project-domain-id OS_PROJECT_DOMAIN_ID]
+            [--os-project-domain-name OS_PROJECT_DOMAIN_NAME]
+            [--os-trust-id OS_TRUST_ID]
+            [--os-default-domain-id OS_DEFAULT_DOMAIN_ID]
+            [--os-default-domain-name OS_DEFAULT_DOMAIN_NAME]
+            [--os-user-id OS_USER_ID] [--os-username OS_USERNAME]
+            [--os-user-domain-id OS_USER_DOMAIN_ID]
+            [--os-user-domain-name OS_USER_DOMAIN_NAME]
+            [--os-password OS_PASSWORD]
+            <subcommand> ...
+error: unrecognized arguments: ID
+Try 'nova help ' for more information.
+root@cic-1:~# nova list --all-tenants --fields tenant
+ERROR (CommandError): Non-existent fields are specified: [u'tenant']
+root@cic-1:~# ^C
+root@cic-1:~# nova list --all-tenants --tenant
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+| ID                                   | Name          | Tenant ID                        | Status | Task State | Power State | Networks                         |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+| 40b19a0d-7a19-497d-be68-2e9c194ac237 | test_vm1      | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.17             |
+| 07e7bafb-f95e-425e-a9e0-ba140e4a1556 | vm1           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.8, 10.0.29.9   |
+| 235cda77-5e2f-4ce3-8c4e-6f60ea4cae9d | vm2           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.12             |
+| fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | vm_raw        | 87772029bed54fb0b36bdb966b6cbd1e | ERROR  | -          | Running     | test-2900=10.0.29.11             |
+| 1c92b57d-775c-42b1-b888-f5cd0924d688 | vm_raw2       | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.14             |
+| 8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca | watchdog-test | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.18, 10.0.29.19 |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+root@cic-1:~# nova list --all-tenants --tenant tenant_id
++----+------+-----------+--------+------------+-------------+----------+
+| ID | Name | Tenant ID | Status | Task State | Power State | Networks |
++----+------+-----------+--------+------------+-------------+----------+
++----+------+-----------+--------+------------+-------------+----------+
+root@cic-1:~# nova list --all-tenants --tenant
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+| ID                                   | Name          | Tenant ID                        | Status | Task State | Power State | Networks                         |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+| 40b19a0d-7a19-497d-be68-2e9c194ac237 | test_vm1      | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.17             |
+| 07e7bafb-f95e-425e-a9e0-ba140e4a1556 | vm1           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.8, 10.0.29.9   |
+| 235cda77-5e2f-4ce3-8c4e-6f60ea4cae9d | vm2           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.12             |
+| fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | vm_raw        | 87772029bed54fb0b36bdb966b6cbd1e | ERROR  | -          | Running     | test-2900=10.0.29.11             |
+| 1c92b57d-775c-42b1-b888-f5cd0924d688 | vm_raw2       | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.14             |
+| 8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca | watchdog-test | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.18, 10.0.29.19 |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+root@cic-1:~# nova list --all-tenants --fields name
++--------------------------------------+---------------+
+| ID                                   | Name          |
++--------------------------------------+---------------+
+| 40b19a0d-7a19-497d-be68-2e9c194ac237 | test_vm1      |
+| 07e7bafb-f95e-425e-a9e0-ba140e4a1556 | vm1           |
+| 235cda77-5e2f-4ce3-8c4e-6f60ea4cae9d | vm2           |
+| fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | vm_raw        |
+| 1c92b57d-775c-42b1-b888-f5cd0924d688 | vm_raw2       |
+| 8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca | watchdog-test |
++--------------------------------------+---------------+
+root@cic-1:~# nova list --all-tenants --fields tenant_id
++--------------------------------------+----------------------------------+
+| ID                                   | Tenant Id                        |
++--------------------------------------+----------------------------------+
+| 07e7bafb-f95e-425e-a9e0-ba140e4a1556 | 87772029bed54fb0b36bdb966b6cbd1e |
+| 1c92b57d-775c-42b1-b888-f5cd0924d688 | 87772029bed54fb0b36bdb966b6cbd1e |
+| 235cda77-5e2f-4ce3-8c4e-6f60ea4cae9d | 87772029bed54fb0b36bdb966b6cbd1e |
+| 40b19a0d-7a19-497d-be68-2e9c194ac237 | 87772029bed54fb0b36bdb966b6cbd1e |
+| 8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca | 87772029bed54fb0b36bdb966b6cbd1e |
+| fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | 87772029bed54fb0b36bdb966b6cbd1e |
++--------------------------------------+----------------------------------+
+root@cic-1:~# nova list --all-tenants --fields tenant_id | grep fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | awk -F"|" '{print $3}' | tr -d ' '
+87772029bed54fb0b36bdb966b6cbd1e
+root@cic-1:~# grep "region_name" /etc/watchmen/watchmen-producer.conf | cut -d"=" -f2
+ITTE-CEE-E2E-R7C
+root@cic-1:~# vim /usr/share/ericsson-orchestration/playbooks/cmcc-la/roles/artifact1481398/templates/control-link-monitor.py
+root@cic-1:~# cd var/cmcc-la/scripts/
+-bash: cd: var/cmcc-la/scripts/: No such file or directory
+root@cic-1:~# cd var
+-bash: cd: var: No such file or directory
+root@cic-1:~# cd ..
+root@cic-1:/#  cd var/cmcc-la/scripts/
+root@cic-1:/var/cmcc-la/scripts#
+root@cic-1:/var/cmcc-la/scripts# ls
+evacuate_vm.py  keystone_conf_info.py   kkk.py     ktoken.pyc        migrate_and_keep_alive.py  nova_conf_info.pyc  watchmen_list.py
+__init__.py     keystone_conf_info.pyc  ktoken.py  libvirt_utils.py  nova_conf_info.py          t2.py               watchmen_test.py
+root@cic-1:/var/cmcc-la/scripts# vim keep_alive.py
+root@cic-1:/var/cmcc-la/scripts# chmod a+x ke
+keep_alive.py           keystone_conf_info.py   keystone_conf_info.pyc
+root@cic-1:/var/cmcc-la/scripts# chmod a+x keep_alive.py
+root@cic-1:/var/cmcc-la/scripts# python keep_alive.py
+Traceback (most recent call last):
+  File "keep_alive.py", line 75, in <module>
+    main()
+  File "keep_alive.py", line 12, in main
+    vm_uuid = sys.argv[1]
+IndexError: list index out of range
+root@cic-1:/var/cmcc-la/scripts# python keep_alive.py fb5b124a-8bd2-4faf-b50b-64ca64fe5c78
+restore vm to keep it alive
+root@cic-1:/var/cmcc-la/scripts# nova list --all-tenants --tenant
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+| ID                                   | Name          | Tenant ID                        | Status | Task State | Power State | Networks                         |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+| 40b19a0d-7a19-497d-be68-2e9c194ac237 | test_vm1      | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.17             |
+| 07e7bafb-f95e-425e-a9e0-ba140e4a1556 | vm1           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.8, 10.0.29.9   |
+| 235cda77-5e2f-4ce3-8c4e-6f60ea4cae9d | vm2           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.12             |
+| fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | vm_raw        | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.11             |
+| 1c92b57d-775c-42b1-b888-f5cd0924d688 | vm_raw2       | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.14             |
+| 8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca | watchdog-test | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.18, 10.0.29.19 |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+root@cic-1:/var/cmcc-la/scripts# nova list --all-tenants --tenant
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+| ID                                   | Name          | Tenant ID                        | Status | Task State | Power State | Networks                         |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+| 40b19a0d-7a19-497d-be68-2e9c194ac237 | test_vm1      | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.17             |
+| 07e7bafb-f95e-425e-a9e0-ba140e4a1556 | vm1           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.8, 10.0.29.9   |
+| 235cda77-5e2f-4ce3-8c4e-6f60ea4cae9d | vm2           | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.12             |
+| fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | vm_raw        | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.11             |
+| 1c92b57d-775c-42b1-b888-f5cd0924d688 | vm_raw2       | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.14             |
+| 8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca | watchdog-test | 87772029bed54fb0b36bdb966b6cbd1e | ACTIVE | -          | Running     | test-2900=10.0.29.18, 10.0.29.19 |
++--------------------------------------+---------------+----------------------------------+--------+------------+-------------+----------------------------------+
+root@cic-1:/var/cmcc-la/scripts# python keep_alive.py fb5b124a-8bd2-4faf-b50b-64ca64fe5c78
+root@cic-1:/var/cmcc-la/scripts#
