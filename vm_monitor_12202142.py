@@ -50,46 +50,50 @@ def main():
     # create the vm status file
     res = curl_get_kpi()
     res = res["servers"]
-    a = {} #缓存文件
+    cache_file = []  # 缓存文件
+    cache_status_file = []
+    vm_uuid_cache = []
     for i in res:
         vm_uuid = i.get('id', '')
         vm_name = i.get('name', '')
         vm_last_status = i.get('status', '')
-        a[vm_uuid] = vm_last_status
+        vm_status_file = str(vm_uuid) + ',' + str(vm_name) + ',' + str(vm_last_status)
+        cache_file.append(vm_status_file)
+        cache_status_file.append(vm_last_status)
+        vm_uuid_cache.append(vm_uuid)
+    print cache_file
     # 然后需要先判断一下sql中有没有这张表,如果没有的话就创建一张表
 
     while True:
         res_two = curl_get_kpi()
         res_two = res_two["servers"]
-        b = {}  # 缓存文件
+        cache_file_two = []
+        cache_status_file_two = []
+        vm_uuid_cache_two = []
+        vm_last_status_two = []
         for j in res_two:
             vm_uuid = j.get('id','')
             vm_name = j.get('name','')
             vm_curr_status = j.get('status','')
-            b[vm_uuid] = vm_curr_status
             #vm_last_status = cache_status_file#从缓存里查vm状态 ,是个list
+
             tenant_id = ""
-            #diffent_uuid_list=list(set(vm_uuid_cache_two).difference(set(vm_uuid_cache)))
-            dict4 = dict.fromkeys([x for x in b if x not in a])
-            if dict4 != {}:
-                for key_4 in dict4:
-                    print('%s:%s added to nova'%(time.ctime(),key_4))   ## new added vm
+            vm_status_file_two = str(vm_uuid) + ',' + str(vm_name) + ',' + str(vm_curr_status)
+            cache_file_two.append(vm_status_file_two)
+            cache_status_file_two.append(vm_curr_status)
+            diffent_uuid_list=list(set(vm_uuid_cache_two).difference(set(vm_uuid_cache)))
+            if diffent_uuid_list !=[]:    # 如果从缓存中发现差异   #vm_last_status=`cat ${vm_last_status_file} | grep $vm_uuid | awk -F, '{print $3}'
+                # new added vm
                 print "`date`:%s added to nova"%(vm_name)   #比较差异之后把two中新增的uuid对应的vm_name取出来打印(用mysql)
-                #然后拿dictb的元素作为基准重新覆盖数据库中的相应表
-            dict3 = dict.fromkeys([x for x in a if x in b and a[x] != b[x]])
-            if dict4 != {}:
-                for k in dict3:
-                    if a[k] == "ACTIVE" and b[k] == "ERROR":
-                        print('raise event -to error %s' % k)
-                        # print(b[k])
-                    if a[k] == "ACTIVE" and b[k] == "SHUTOFF":
-                        print('raise event -to shutoff %s' % k)
-                        # print(b[k])
-                    if a[k] == "ERROR" and b[k] == "ACTIVE":
-                        print('clear event -error %s' % k)
-                        # print(b[k])
-                    if a[k] == "SHUTOFF" and b[k] == "ACTIVE":
-                        print('clear event - shutoff %s' % k)
+                vm_uuid_cache = vm_uuid_cache_two   ##校准缓存
+                cache_file = cache_file_two #校准缓存
+                #然后拿cache_file_two的元素作为基准重新覆盖数据库中的相应表
+            elif diffent_uuid_list == []:
+                continue
+            #diffent_status_list = list(set(vm_uuid_cache_two).difference(set(cache_status_file)))
+
+        #if cache_file != cache_file_two:
+            #cache_file = cache_file_two
 
 
 
