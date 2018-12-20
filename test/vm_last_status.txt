@@ -1,0 +1,6 @@
+test_vm1,40b19a0d-7a19-497d-be68-2e9c194ac237,ACTIVE
+vm1,07e7bafb-f95e-425e-a9e0-ba140e4a1556,ACTIVE
+vm2,235cda77-5e2f-4ce3-8c4e-6f60ea4cae9d,ACTIVE
+vm_raw,fb5b124a-8bd2-4faf-b50b-64ca64fe5c78,ACTIVE
+vm_raw2,1c92b57d-775c-42b1-b888-f5cd0924d688,ACTIVE
+watchdog-test,8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca,ACTIVE
