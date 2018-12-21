@@ -9,10 +9,13 @@ import urllib2
 import subprocess
 import ConfigParser
 import threading
+import keep_alive
+import evacuate_vm
+import traffic-create-mysql
 
 from watchmen.common import enums
 from watchmen.common.fmevent import FmEvent
-from watchmen.producer.eventsender import EventSende
+from watchmen.producer.eventsender import EventSender
 
 identity_url = 'https://cic.ericsson.se:5000/v2.0'
 metering_url = 'http://[fd00::c0a8:2a1c]:8774'
@@ -42,6 +45,17 @@ def curl_get_kpi():
     return ddata
 
 
+def curl_get_kpi_show(vm_uuid):
+    xtoken = curl_keystone()
+    url = metering_url + '/v2.1/servers/%s ' % (vm_uuid)
+    req = urllib2.Request(url)
+    req.add_header('X-Auth-Token', xtoken)
+    response = urllib2.urlopen(req)
+    data = response.read()
+    ddata = json.loads(data)
+    return ddata
+
+
 def main():
     SCRIPTS_DIR = "/var/cmcc-la/scripts"
     region_status, region = commands.getstatusoutput(
@@ -50,11 +64,14 @@ def main():
     # create the vm status file
     res = curl_get_kpi()
     res = res["servers"]
-    a = {} #缓存文件
+    tenant_id = []  # 里面有多个重复的tenant_id,用的时候取第一个就行了
+    a = {}  # 缓存文件
     for i in res:
         vm_uuid = i.get('id', '')
         vm_name = i.get('name', '')
         vm_last_status = i.get('status', '')
+        tenant_id_vm = i.get('tenant_id', '')
+        tenant_id.append(tenant_id_vm)
         a[vm_uuid] = vm_last_status
     # 然后需要先判断一下sql中有没有这张表,如果没有的话就创建一张表
 
@@ -63,63 +80,123 @@ def main():
         res_two = res_two["servers"]
         b = {}  # 缓存文件
         for j in res_two:
-            vm_uuid = j.get('id','')
-            vm_name = j.get('name','')
-            vm_curr_status = j.get('status','')
+            vm_uuid = j.get('id', '')
+            vm_name = j.get('name', '')
+            vm_curr_status = j.get('status', '')
             b[vm_uuid] = vm_curr_status
-            #vm_last_status = cache_status_file#从缓存里查vm状态 ,是个list
-            tenant_id = ""
-            #diffent_uuid_list=list(set(vm_uuid_cache_two).difference(set(vm_uuid_cache)))
             dict4 = dict.fromkeys([x for x in b if x not in a])
             if dict4 != {}:
                 for key_4 in dict4:
-                    print('%s:%s added to nova'%(time.ctime(),key_4))   ## new added vm
-                print "`date`:%s added to nova"%(vm_name)   #比较差异之后把two中新增的uuid对应的vm_name取出来打印(用mysql)
-                #然后拿dictb的元素作为基准重新覆盖数据库中的相应表
+                    print('%s:%s added to nova' % (time.ctime(),
+                                                   key_4))  ## new added vm#比较差异之后把two中新增的uuid对应的vm_name取出来打印(用mysql),然后拿dictb的元素作为基准重新覆盖数据库中的相应表
             dict3 = dict.fromkeys([x for x in a if x in b and a[x] != b[x]])
-            if dict4 != {}:
+            if dict3 != {}:
                 for k in dict3:
                     if a[k] == "ACTIVE" and b[k] == "ERROR":
                         print('raise event -to error %s' % k)
-                        # print(b[k])
+                        evnet_sender = EventSender()
+                        source_one = "Region=%s,CeeFunction=1,Tenant=%s,VM=%s" % (region, tenant_id[0], k)
+                        event = FmEvent(
+                            True,
+                            source_one,
+                            193,
+                            2032692,
+                            enums.FM_ACTIVE_SEVERITY.CRITICAL,
+                            enums.FM_EVENT_TYPE.equipmentAlarm,
+                            enums.FM_PROBABLE_CAUSE.enums.FM_PROBABLE_CAUSE.m3100Indeterminate,
+                            "VM status became error",
+                            None,
+                            "VM %s has changed to status error" % (k)
+                        )
+                        evnet_sender.create_new_fm_event(event)
+                        # 救虚机的部分
+                        res = curl_get_kpi_show(k)
+                        res = res["servers"]
+                        for i in res:
+                            metadata = i.get('metadata', '')
+                            if metadata != '':
+                                retValue_status, retValue = commands.getstatusoutput(
+                                    "echo %s | grep \"Auto_Restore:true\"" % (k))
+
+                                if retValue:
+                                    keep_alive.main(k)
+
                     if a[k] == "ACTIVE" and b[k] == "SHUTOFF":
                         print('raise event -to shutoff %s' % k)
-                        # print(b[k])
+                        evnet_sender2 = EventSender()
+                        source_two = "Region=%s,CeeFunction=1,Tenant=%s,VM=%s" % (region, tenant_id[0], k)
+                        event2 = FmEvent(
+                            True,
+                            source_two,
+                            193,
+                            2032693,
+                            enums.FM_ACTIVE_SEVERITY.CRITICAL,
+                            enums.FM_EVENT_TYPE.equipmentAlarm,
+                            enums.FM_PROBABLE_CAUSE.enums.FM_PROBABLE_CAUSE.m3100Indeterminate,
+                            "VM status became shutoff",
+                            None,
+                            "VM %s has changed to status shutoff" % (k)
+                        )
+                        evnet_sender2.create_new_fm_event(event2)
+                        res = curl_get_kpi_show(k)
+                        res = res["servers"]
+                        for i in res:
+                            metadata = i.get('metadata', '')
+                            if metadata != '':
+
+                                keep_Alive_status, keep_Alive1 = commands.getstatusoutput(
+                                    "echo %s | grep \"Keep_Alive:true\"" % (metadata))
+                                migration_status, migration = commands.getstatusoutput(
+                                    "echo %s | grep \"Alive_Policy:migration\"" % (metadata))
+                                evacuation_status, evacuation = commands.getstatusoutput(
+                                    "echo %s | grep \"Alive_Policy:evacuation\"" % (metadata))
+                                if keep_Alive1 and migration:
+                                    # migrate and keep alive
+                                    keep_alive.main(k)
+                                elif keep_Alive1 and evacuation:
+                                    # evacuate the vm for a DOWN host
+                                    evacuate_vm.main(k)
+                                elif keep_Alive1:
+                                    # keep alive
+                                    keep_alive.main(k)
                     if a[k] == "ERROR" and b[k] == "ACTIVE":
                         print('clear event -error %s' % k)
-                        # print(b[k])
+                        evnet_sender3 = EventSender()
+                        source_one = "Region=%s,CeeFunction=1,Tenant=%s,VM=%s" % (region, tenant_id[0], k)
+                        event3 = FmEvent(
+                            True,
+                            source_one,
+                            193,
+                            2032692,
+                            enums.FM_ACTIVE_SEVERITY.CLEARED,
+                            enums.FM_EVENT_TYPE.equipmentAlarm,
+                            enums.FM_PROBABLE_CAUSE.enums.FM_PROBABLE_CAUSE.m3100Indeterminate,
+                            "VM status became ACTIVE",
+                            None,
+                            "VM %s has changed to status ACTIVE" % (k)
+                        )
+                        evnet_sender3.create_new_fm_event(event3)
                     if a[k] == "SHUTOFF" and b[k] == "ACTIVE":
                         print('clear event - shutoff %s' % k)
+                        evnet_sender4 = EventSender()
+                        source_one = "Region=%s,CeeFunction=1,Tenant=%s,VM=%s" % (region, tenant_id[0], k)
+                        event4 = FmEvent(
+                            True,
+                            source_one,
+                            193,
+                            2032692,
+                            enums.FM_ACTIVE_SEVERITY.CLEARED,
+                            enums.FM_EVENT_TYPE.equipmentAlarm,
+                            enums.FM_PROBABLE_CAUSE.enums.FM_PROBABLE_CAUSE.m3100Indeterminate,
+                            "VM status became ACTIVE",
+                            None,
+                            "VM %s has changed to status ACTIVE" % (k)
+                        )
+                        evnet_sender4.create_new_fm_event(event4)
+        a = b   # 覆盖a的缓存
+        #如果改动if a !=b,则将b写入mysql
+        time.sleep(1)
 
-
-
-
-
-
-
-        #commands.getstatusoutput("cp -p ${%s} ${%s}.bak" % (vm_last_status_file, vm_last_status_file))
-        #nova_list_status, nova_list = commands.getstatusoutput("nova list --all 2>/dev/null | grep ^\"|\" | grep -v ID")
-        #if nova_list_status != 0:
-            #continue
-
-            #nova_list_per = nova_list.split("\n")
-            # for i in nova_list_per:
-            #     b = i.split("|")
-            #     vm_uuid = b[1]
-            #     vm_uuid_split = vm_uuid.split(" ")
-            #     vm_uuid_rel = vm_uuid_split[1]
-            #     vm_name = b[2]
-            #     vm_name_split = vm_name.split(" ")
-            #     vm_name_rel = vm_name_split[1]
-            #     vm_curr_status = b[4]
-            #     vm_curr_status_split = vm_curr_status.split(" ")
-            #     vm_curr_status_rel = vm_curr_status_split[1]
-            #     #vm_last_status_file = vm_name_rel + ',' + vm_uuid_rel + ',' + vm_last_status_rel
-            #     tenant_id =b[3]
-            #     tenant_id_split = tenant_id.split(" ")
-            #     tenant_id_rel = tenant_id_split[1]
-            #     vm_last_status = commands.getstatusoutput("cat ${%s} | grep %s | awk -F, '{print $3}'"%(vm_last_status_file,vm_uuid_rel))
-            #     status_changed = ""
 
 
 if __name__ == '__main__':

@@ -4,8 +4,8 @@ import time
 import commands
 
 
-def main():
-    vm_uuid = sys.argv[1]
+def main(a):
+    vm_uuid = a
     time.sleep(30)
     # commands.getstatusoutput("source /var/cmcc-la/data/openrc")
     commands.getstatusoutput("source /root/openrc")

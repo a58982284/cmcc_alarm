@@ -8,8 +8,8 @@ from watchmen.common.fmevent import FmEvent
 from watchmen.producer.eventsender import EventSender
 
 
-def main():
-    vm_uuid = sys.argv[1]
+def main(a):
+    vm_uuid = a
     region_status, region = commands.getstatusoutput(
         "grep \"region_name\" /etc/watchmen/watchmen-producer.conf | cut -d\"=\" -f2")
     count = 0
@@ -47,7 +47,7 @@ def main():
             # restore failed, generate alarm
             print "restore failed , raise event"
             tenant_uuid_status, tenant_uuid = commands.getstatusoutput(
-                "nova list --all-tenants --fields tenant_id | grep fb5b124a-8bd2-4faf-b50b-64ca64fe5c78 | awk -F\"|\" '{print $3}' | tr -d ' '")
+                "nova list --all-tenants --fields tenant_id | grep %s | awk -F\"|\" '{print $3}' | tr -d ' '"%(vm_uuid))
             evnet_sender = EventSender()
             source_one = "Region=%s,CeeFunction=1,Tenant=%s,VM=%s" % (region, tenant_uuid, vm_uuid)
             event = FmEvent(
@@ -57,18 +57,10 @@ def main():
                 2032702,
                 enums.FM_ACTIVE_SEVERITY.WARNING,
                 enums.FM_EVENT_TYPE.other,
-                enums.FM_PROBABLE_CAUSE.enums.FM_PROBABLE_CAUSE.m3100LossOfSignal,
+                enums.FM_PROBABLE_CAUSE.enums.FM_PROBABLE_CAUSE.m3100Indeterminate,  #m3100Indeterminate,环境里的要改
                 "VM Restore Failed",
             )
             evnet_sender.create_new_fm_event(event)
-
-            '''
-            restore_failed_status, restore_failed = commands.getstatusoutput(
-                "/etc/ceesi/scripts/mysql_create_event.sh create-event -sl -src Region=%s,CeeFunction=1,Tenant=%s,VM=%s -ma 193 -mi 2032702 -s WARNING -e other -p m3100Indeterminate   -sp \"VM Restore Failed\"" % (
-                    region, tenant_uuid, vm_uuid))
-            print(restore_failed)
-            print"/etc/ceesi/scripts/mysql_create_event.sh create-event -sl -src Region=$region,CeeFunction=1,Tenant=$tenant_uuid,VM=$vm_uuid -ma 193 -mi 2032702 -s WARNING -e other -p m3100Indeterminate   -sp \"VM Restore Failed\""
-            '''
 
 
 if __name__ == '__main__':
