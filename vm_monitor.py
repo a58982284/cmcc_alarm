@@ -68,7 +68,7 @@ def main():
     tenant_id = []  # 里面有多个重复的tenant_id,用的时候取第一个就行了
 
     mysql_root_password = get_mysql_password()
-    mysql_vip = "{{ fuel_network.management_vip }}"
+    mysql_vip = "192.168.42.28"
     db = MySQLdb.connect(mysql_vip, "root", mysql_root_password)
     cursor = db.cursor()
     create_dase_sql = """create database if not exists om_datafree;"""  # 判断有没有数据库
@@ -88,7 +88,7 @@ def main():
         insert_sql = """insert into vm_monitor values('%s', %s) ON DUPLICATE KEY UPDATE %s;""" % (vm_uuid, vm_last_status,vm_last_status)  #往数据库里加入数据,如果存在则更新,如果不存在则插入
         cursor.execute(insert_sql)
         db.commit()
-        db.close()
+    db.close()
     # 然后需要先判断一下sql中有没有这张表,如果没有的话就创建一张表,如果有,就读取数据库的表放在a字典里
     # 如果没有的话,创建一个表
         # 判断数据库里有没有对应的表
@@ -215,7 +215,7 @@ def main():
             # 如果改动if a !=b,则将b写入mysql
             if cmp (a, b) !=0:
                 mysql_root_password = get_mysql_password()
-                mysql_vip = "{{ fuel_network.management_vip }}"
+                mysql_vip = "192.168.42.28"
                 db = MySQLdb.connect(mysql_vip, "root", mysql_root_password)
                 cursor = db.cursor()
                 use_base_sql = """use om_datafree;"""
