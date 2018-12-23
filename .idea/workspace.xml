@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ad37206-b01e-4702-a352-7b9004f650b9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/get_alarm_time.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libvirt-event-time-adjust.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/remove_empty_directory.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keep_alive集成版本.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm_monitor_181222.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm_monitor_181223.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dict增加元素.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/dict增加元素.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libvirt-event-time-adjust.py" beforeDir="false" afterPath="$PROJECT_DIR$/libvirt-event-time-adjust.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/dict比较.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/dict比较.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vm_monitor.py" beforeDir="false" afterPath="$PROJECT_DIR$/vm_monitor.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,7 +21,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/cmcc_alarm$inputtest.coverage" NAME="inputtest Coverage Results" MODIFIED="1544587229607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$stop_cpu_stress.coverage" NAME="stop_cpu_stress Coverage Results" MODIFIED="1544583888922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/cmcc_alarm$dict.coverage" NAME="dict比较 Coverage Results" MODIFIED="1545315372717" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/cmcc_alarm$dict.coverage" NAME="dict比较 Coverage Results" MODIFIED="1545556987784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$while_test.coverage" NAME="while test Coverage Results" MODIFIED="1544433403803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$test.coverage" NAME="字符串拼接test Coverage Results" MODIFIED="1544752594802" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$while.coverage" NAME="while测试 Coverage Results" MODIFIED="1544755800625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
@@ -35,7 +38,7 @@
       <file leaf-file-name="get_alarm_time.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/get_alarm_time.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
+            <state relative-caret-position="90">
               <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="11" />
               <folding>
                 <element signature="e#14#29#0" expanded="true" />
@@ -47,10 +50,52 @@
       <file leaf-file-name="libvirt-event-time-adjust.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/libvirt-event-time-adjust.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="832">
-              <caret line="52" column="16" lean-forward="true" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+            <state relative-caret-position="428">
+              <caret line="63" column="10" lean-forward="true" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
               <folding>
                 <element signature="e#14#29#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vm_monitor_181222.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vm_monitor_181222.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="102" column="32" selection-start-line="101" selection-start-column="12" selection-end-line="103" selection-end-column="48" />
+              <folding>
+                <element signature="e#15#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="keep_alive.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/keep_alive.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vm_monitor_181223.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vm_monitor_181223.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="keep_alive集成版本.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/keep_alive集成版本.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="672">
+              <caret line="42" column="25" lean-forward="true" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+              <folding>
+                <element signature="e#16#27#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,6 +123,14 @@
       <find />
       <find>identity_url</find>
       <find>curl_get_kpi_show</find>
+      <find>tenant_id[0]</find>
+      <find>vm_uuid</find>
+      <find>values</find>
+      <find>str(</find>
+      <find>1e93894</find>
+      <find>get</find>
+      <find>metadata</find>
+      <find>keep</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -114,12 +167,14 @@
         <option value="$PROJECT_DIR$/dict.py" />
         <option value="$PROJECT_DIR$/dict增加元素.py" />
         <option value="$PROJECT_DIR$/test/dictnone.py" />
-        <option value="$PROJECT_DIR$/test/dict比较.py" />
         <option value="$PROJECT_DIR$/evacuate_vm.py" />
         <option value="$PROJECT_DIR$/keep_alive.py" />
-        <option value="$PROJECT_DIR$/vm_monitor.py" />
         <option value="$PROJECT_DIR$/get_alarm_time.py" />
         <option value="$PROJECT_DIR$/remove_empty_directory.py" />
+        <option value="$PROJECT_DIR$/test/dict比较.py" />
+        <option value="$PROJECT_DIR$/vm_monitor.py" />
+        <option value="$PROJECT_DIR$/keep_alive集成版本.py" />
+        <option value="$PROJECT_DIR$/vm_monitor_181223.py" />
         <option value="$PROJECT_DIR$/libvirt-event-time-adjust.py" />
       </list>
     </option>
@@ -133,7 +188,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -146,7 +201,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,6 +212,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -168,12 +223,13 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\code\cmcc_alarm" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\cmcc_alarm\test" />
       <recent name="D:\code\cmcc_alarm" />
       <recent name="D:\code\cmcc_alarm\test" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\cmcc_alarm" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -313,7 +369,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -321,9 +377,9 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3298969" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32474226" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32318106" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32933104" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.3233909" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24130106" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -346,27 +402,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sriov-link-monitor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/check_cluster_node_status.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restart_pacemaker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/traffic-link-monitor.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -520,13 +555,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/nova-get-request-api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Desktop/nova-get-request-api.py" />
     <entry file="file://$PROJECT_DIR$/test/list变化.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -541,13 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/dict比较.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="51" lean-forward="true" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vm_monitor_12202142.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -559,20 +581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="3" selection-start-column="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dict增加元素.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/keep_alive.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="53" column="151" selection-start-line="53" selection-start-column="145" selection-end-line="53" selection-end-column="152" />
         </state>
       </provider>
     </entry>
@@ -635,13 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/keep_alive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vm_monitor.bash">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
@@ -653,15 +654,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="16" selection-end-column="10" />
-          <folding>
-            <element signature="e#14#29#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/dict比较.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="33" column="49" lean-forward="true" selection-start-line="33" selection-start-column="49" selection-end-line="33" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/get_alarm_time.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
+        <state relative-caret-position="90">
           <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="11" />
           <folding>
             <element signature="e#14#29#0" expanded="true" />
@@ -669,20 +674,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test/dict增加元素.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keep_alive.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="53" column="151" selection-start-line="53" selection-start-column="145" selection-end-line="53" selection-end-column="152" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keep_alive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vm_monitor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-442">
-          <caret line="132" column="42" selection-start-line="132" selection-start-column="35" selection-end-line="132" selection-end-column="42" />
+        <state relative-caret-position="-1764">
+          <caret line="83" column="41" lean-forward="true" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
           <folding>
             <element signature="e#15#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/keep_alive集成版本.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="42" column="25" lean-forward="true" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+          <folding>
+            <element signature="e#16#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vm_monitor_181222.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="102" column="32" selection-start-line="101" selection-start-column="12" selection-end-line="103" selection-end-column="48" />
+          <folding>
+            <element signature="e#15#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vm_monitor_181223.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/libvirt-event-time-adjust.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="832">
-          <caret line="52" column="16" lean-forward="true" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+        <state relative-caret-position="428">
+          <caret line="63" column="10" lean-forward="true" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
           <folding>
             <element signature="e#14#29#0" expanded="true" />
           </folding>

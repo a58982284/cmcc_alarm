@@ -1,9 +1,6 @@
 #coding:utf-8
 import commands
 import sys
-import MySQLdb
-import yaml
-import os
 import urllib2
 import json
 

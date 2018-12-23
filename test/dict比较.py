@@ -43,6 +43,8 @@ def dictionarIntersetction(a,b):
 
 dictionarIntersetction(a,b)
 
+print(len('8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca'))
+
 
 
 

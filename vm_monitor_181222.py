@@ -65,7 +65,7 @@ def main():
 
     res = curl_get_kpi()
     res = res["servers"]
-    tenant_id = []  # list have same value,so use tenant_id[0]
+    tenant_id = []  # 里面有多个重复的tenant_id,用的时候取第一个就行了
 
     mysql_root_password = get_mysql_password()
     mysql_vip = "192.168.42.28"
@@ -75,34 +75,39 @@ def main():
     cursor.execute(create_dase_sql)
     use_base_sql = """use om_datafree;"""
     cursor.execute(use_base_sql)
-    create_table_sql = """create table if not exists vm_monitor (vm_uuid varchar(128) not null unique, vm_status varchar(32) not null) ENGINE=InnoDB;"""
+    create_table_sql = """create table if not exists vm_monitor (vm_uuid varchar(64) not null unique, vm_status varchar(16) not null);"""
     cursor.execute(create_table_sql)
     a = {}  # 缓存文件
     for i in res:
-        vm_uuid = str(i.get('id'))
-        vm_last_status = i.get('status')
-        tenant_id_vm = i.get('tenant_id')
+        vm_uuid = i.get('id', '')
+        vm_name = i.get('name', '')
+        vm_last_status = i.get('status', '')
+        tenant_id_vm = i.get('tenant_id', '')
         tenant_id.append(tenant_id_vm)
         a[vm_uuid] = vm_last_status
-        #insert_sql = """insert into vm_monitor values(%s,%s) ON DUPLICATE KEY UPDATE %s;""" % (vm_uuid,vm_last_status,vm_last_status)
-        insert_sql =  """insert ignore into vm_monitor values(\'%s\',\'%s\');""" % (vm_uuid, vm_last_status)
+        insert_sql = """insert into vm_monitor values('%s', %s) ON DUPLICATE KEY UPDATE %s;""" % (vm_uuid, vm_last_status,vm_last_status)  #往数据库里加入数据,如果存在则更新,如果不存在则插入
         cursor.execute(insert_sql)
         db.commit()
     db.close()
+    # 然后需要先判断一下sql中有没有这张表,如果没有的话就创建一张表,如果有,就读取数据库的表放在a字典里
+    # 如果没有的话,创建一个表
+        # 判断数据库里有没有对应的表
+
 
     while True:
         res_two = curl_get_kpi()
         res_two = res_two["servers"]
         b = {}  # 缓存文件
         for j in res_two:
-            vm_uuid = str(j.get('id'))
-            vm_name = j.get('name')
-            vm_curr_status = j.get('status')
+            vm_uuid = j.get('id', '')
+            vm_name = j.get('name', '')
+            vm_curr_status = j.get('status', '')
             b[vm_uuid] = vm_curr_status
             dict4 = dict.fromkeys([x for x in b if x not in a])
             if dict4 != {}:
                 for key_4 in dict4:
-                    print('%s:%s added to nova' % (time.ctime(),key_4))
+                    print('%s:%s added to nova' % (time.ctime(),
+                                                   key_4))  ## new added vm#比较差异之后把two中新增的uuid对应的vm_name取出来打印(用mysql),然后拿dictb的元素作为基准重新覆盖数据库中的相应表
             dict3 = dict.fromkeys([x for x in a if x in b and a[x] != b[x]])
             if dict3 != {}:
                 for k in dict3:
@@ -123,7 +128,7 @@ def main():
                             "VM %s has changed to status error" % (k)
                         )
                         evnet_sender.create_new_fm_event(event)
-                        # restore vm
+                        # 救虚机的部分
                         res = curl_get_kpi_show(k)
                         res = res["servers"]
                         for i in res:
@@ -215,7 +220,7 @@ def main():
                 cursor = db.cursor()
                 use_base_sql = """use om_datafree;"""
                 cursor.execute(use_base_sql)
-                update_sql = """update vm_monitor set vm_status=\'%s\' where vm_uuid=\'%s\';""" % (vm_curr_status, vm_uuid)
+                update_sql = """update vm_monitor set vm_status=%s where vm_uuid='%s';""" % (vm_curr_status, vm_uuid)
                 cursor.execute(update_sql)
                 db.commit()
                 db.close()
