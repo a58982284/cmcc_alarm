@@ -132,19 +132,19 @@ def main():
                             if metadata != '':
                                 keep_Alive_status, keep_Alive1 = commands.getstatusoutput(
                                     "echo %s | grep \"Keep_Alive:true\"" % (metadata))
-                                migration_status, migration = commands.getstatusoutput(
-                                    "echo %s | grep \"Alive_Policy:migration\"" % (metadata))
-                                evacuation_status, evacuation = commands.getstatusoutput(
-                                    "echo %s | grep \"Alive_Policy:evacuation\"" % (metadata))
-                                if keep_Alive1 and migration:
+                                # migration_status, migration = commands.getstatusoutput(
+                                #     "echo %s | grep \"Alive_Policy:migration\"" % (metadata))
+                                # evacuation_status, evacuation = commands.getstatusoutput(
+                                #     "echo %s | grep \"Alive_Policy:evacuation\"" % (metadata))
+                                if keep_Alive1:
                                     # migrate and keep alive
                                     keep_alive.main(k)
-                                elif keep_Alive1 and evacuation:
-                                    # evacuate the vm for a DOWN host
-                                    evacuate_vm.main(k)
-                                elif keep_Alive1 and not evacuation:
-                                    # keep alive
-                                    keep_alive.main(k)
+                                # elif keep_Alive1 and evacuation:
+                                #     # evacuate the vm for a DOWN host
+                                #     evacuate_vm.main(k)
+                                # elif keep_Alive1:
+                                #     # keep alive
+                                #     keep_alive.main(k)
                     if a[k] == "ERROR" and b[k] == "ACTIVE":
                         print('clear event -error %s' % k)
                         evnet_sender3 = EventSender()

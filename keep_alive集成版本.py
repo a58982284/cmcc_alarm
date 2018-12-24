@@ -1,10 +1,68 @@
 # coding:utf-8
 import time
 import commands
-
+import json
+import requests
 from watchmen.common import enums
 from watchmen.common.fmevent import FmEvent
 from watchmen.producer.eventsender import EventSender
+import sys
+import json
+import logging as log
+from kombu import BrokerConnection
+from kombu import Exchange
+from kombu import Queue
+from kombu.mixins import ConsumerMixin
+from ktoken import ktoken
+from endpoints import endpoints
+
+
+EXCHANGE_NAME="nova"
+ROUTING_KEY="notifications.info"
+QUEUE_NAME="nova_dump_queue"
+BROKER_URI="amqp://nova:uoKLyhFwpKoVgn3F2P4ybAdN@192.168.42.24:5673//"
+
+log.basicConfig(stream=sys.stdout, level=log.DEBUG)
+
+class NotificationsDump(ConsumerMixin):
+
+    def __init__(self, connection):
+        self.connection = connection
+        self.ktoken = ktoken.get_token()
+        self.endpoints = endpoints
+        #return
+
+    def get_consumers(self, consumer, channel):
+        exchange = Exchange(EXCHANGE_NAME, type="topic", durable=False)
+        queue = Queue(QUEUE_NAME, exchange, routing_key = ROUTING_KEY, durable=False, auto_delete=True, no_ack=True)
+        return [ consumer(queue, callbacks = [ self.on_message ]) ]
+
+    def on_message(self, body, message):
+        message = json.loads(body['oslo.message'])
+        log.info('Body: %r' % message['event_type'])
+        log.info('---------------')
+
+    identity_url = 'https://cic.ericsson.se:5000/v2.0'
+    metering_url = 'http://[fd00::c0a8:2a1c]:8774'
+
+    def create_sample(self):
+        token = ktoken.get_token()
+
+            #self.ceilometer_auth_url = endpoints('ceilometer').get_endpoint()
+            #url = self.ceilometer_auth_url+'/v2/meters/'+source
+        ceilometer_auth_url = endpoints('nova').get_endpoint()
+        #url = metering_url + '/v2.1/servers/%s ' % (vm_uuid)
+        url = ceilometer_auth_url + '/v2.1/servers/%s ' %(vm_uuid)
+            #mem_value = memory_mb if source == 'hypervisor.memory.total' else memory_mb_used
+        headers = {'Content-Type': 'application/json', 'X-Auth-Token': token}
+        fields = [{
+            "os-start": 'null'
+            }]
+        requests.post(url, data=json.dumps(fields), headers=headers)
+
+
+
+
 
 def keep_alive(a):
     vm_uuid = a
@@ -61,4 +119,7 @@ def keep_alive(a):
 
 
 if __name__ == '__main__':
+    log.info("Connecting to broker {}".format(BROKER_URI))
+    with BrokerConnection(BROKER_URI) as connection:
+        NotificationsDump(connection).run()
     keep_alive()
