@@ -23,8 +23,11 @@ def dictdifferent(a,b):
 
 def dictionarIntersetction(a,b):
     dict4 = dict.fromkeys([x for x in b if x not in a ])
+    print dict4
     if dict4 !={}:
         print dict4
+        for key in dict4:
+            print(key)
     dict3 = dict.fromkeys([x for x in a if x in b and a[x]!=b[x]])
     #print(dict3)    #{'8cca0c0c-4f36-47c9-a0c3-bd13e2b313ca': None}
     for k in dict3:

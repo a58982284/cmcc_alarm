@@ -20,6 +20,7 @@ class NotificationsDump(object):
 
 a = NotificationsDump()
 
-print(a.main())
+print(a.on_message())
+print(a.event_type)
 
 #print(a.event_type)
