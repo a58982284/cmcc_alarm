@@ -1,0 +1,39 @@
+declare -A timeStamp
+delayTime=30
+org_host=$(hostname)
+region=`grep region_name /etc/watchmen/watchmen-producer.conf | cut -d"=" -f2`
+DIR=`dirname $0`
+CUR_DIR=`pwd $DIR`
+LOG_FILE=/var/log/libvirt/libvirtevent.log
+to_capture_fault_restored=n
+
+source /root/openrc
+
+
+while True监听virsh event:(也不一定是while循环,如果API本身就是监听进程就不用while)
+	之后从API中获取一堆值,赋值给各个变量
+	if $deltatime>$delayTime:
+		#reset timestamp
+		if X$eventType = Xreboot && $myInstance =~ ^instance:
+			minor_id=2032696
+			#从libvirt-event-time.conf中读数据然后正则,估计匹配出的是个time
+
+			if $time非空且>0:
+				#拼接时间戳,然后将一堆值输入到log文件里
+			输入log文件然后报警
+
+			if $wa_timestamp非空串:
+				运行watchmen-fmevent-operate.py的脚本传几个值进去
+			sleep10然后告警
+		elif X$eventType == Xlifecycle &.....一堆判断条件:
+			minor_id=2032697
+			#输入到log然后创建告警
+		elif [[ X$eventType = Xlifecycle && $myInst...一堆判断条件
+			#输入到log然后创建告警
+		if [ X$to_capture_fault_restored = Xy ]	:
+			运行一个脚本
+	else:
+		timeStamp[$myKey]="$eptime"
+	sleep 1
+
+
