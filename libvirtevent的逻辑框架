@@ -25,13 +25,16 @@ while True监听virsh event:(也不一定是while循环,如果API本身就是监
 			if $wa_timestamp非空串:
 				运行watchmen-fmevent-operate.py的脚本传几个值进去
 			sleep10然后告警
+
 		elif X$eventType == Xlifecycle &.....一堆判断条件:
 			minor_id=2032697
 			#输入到log然后创建告警
+			
 		elif [[ X$eventType = Xlifecycle && $myInst...一堆判断条件
 			#输入到log然后创建告警
+
 		if [ X$to_capture_fault_restored = Xy ]	:
-			运行一个脚本
+			运行一个脚本 check_fault_restored.sh
 	else:
 		timeStamp[$myKey]="$eptime"
 	sleep 1
