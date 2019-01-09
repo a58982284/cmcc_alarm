@@ -2,12 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ad37206-b01e-4702-a352-7b9004f650b9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/mysql_op.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service_supervision.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service_supervision_bak.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service_supervisionecho.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libvirtevent_190109.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libvirtevent_patch.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql_op_190107.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service_supervision_190107.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/gaojing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/nova_list_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/split_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/vm切片测试.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/手动写入告警.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/手动清除告警.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/类中timmer测试.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/类中使用timmer范例.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/获取告警列表.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm-external-storage-monitor_0109.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vm-external-storage-monitor_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/libvirtevent_181228装饰器版本.py" beforeDir="false" afterPath="$PROJECT_DIR$/libvirtevent_181228装饰器版本.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysql_ca_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/mysql_ca_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_supervision.py" beforeDir="false" afterPath="$PROJECT_DIR$/service_supervision.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_supervision_bak.py" beforeDir="false" afterPath="$PROJECT_DIR$/service_supervision_bak.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,10 +39,13 @@
     <SUITE FILE_PATH="coverage/cmcc_alarm$whiletest2.coverage" NAME="whiletest2 Coverage Results" MODIFIED="1545659375792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$test.coverage" NAME="多线程test Coverage Results" MODIFIED="1545723209172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$while.coverage" NAME="while测试 Coverage Results" MODIFIED="1544755800625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/cmcc_alarm$timmer.coverage" NAME="类中timmer测试 Coverage Results" MODIFIED="1547018421855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/cmcc_alarm$vm.coverage" NAME="vm切片测试 Coverage Results" MODIFIED="1547015398348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$list.coverage" NAME="list变化 Coverage Results" MODIFIED="1545314306008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$time.coverage" NAME="time格式测试 Coverage Results" MODIFIED="1545880967062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$check_cluster_node_status.coverage" NAME="check_cluster_node_status Coverage Results" MODIFIED="1544150395039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$sriov_link_monitor_cls.coverage" NAME="sriov-link-monitor-cls Coverage Results" MODIFIED="1544428457532" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/cmcc_alarm$split_test.coverage" NAME="split_test Coverage Results" MODIFIED="1546863611075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$cpu_occupy.coverage" NAME="cpu_occupy Coverage Results" MODIFIED="1544500623883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$dictnone.coverage" NAME="dictnone Coverage Results" MODIFIED="1545315258794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/cmcc_alarm$.coverage" NAME="时间测试 Coverage Results" MODIFIED="1545978485114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
@@ -36,23 +53,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="vm_monitor.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vm_monitor.py">
+      <file leaf-file-name="nova_list_test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/nova_list_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-512">
-              <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+            <state relative-caret-position="1632">
+              <caret line="120" column="12" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+              <folding>
+                <element signature="e#15#40#0" expanded="true" />
+                <element signature="e#1988#2515#1" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mysql_op.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mysql_op.py">
+      <file leaf-file-name="vm-external-storage-monitor_test.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vm-external-storage-monitor_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="318">
+              <caret line="229" column="32" lean-forward="true" selection-start-line="229" selection-start-column="32" selection-end-line="229" selection-end-column="32" />
               <folding>
-                <element signature="e#18#28#0" expanded="true" />
-                <element signature="e#1579#1647#0" />
+                <element signature="e#15#40#0" expanded="true" />
+                <element signature="e#1909#2436#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vm-external-storage-monitor_0109.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vm-external-storage-monitor_0109.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="194" column="21" lean-forward="true" selection-start-line="194" selection-start-column="21" selection-end-line="194" selection-end-column="21" />
+              <folding>
+                <element signature="e#15#40#0" expanded="true" />
+                <element signature="e#1988#2515#1" />
               </folding>
             </state>
           </provider>
@@ -69,16 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>endpoints</find>
-      <find>Not</find>
-      <find>b</find>
-      <find>key_2</find>
-      <find>identity_url</find>
-      <find>metering_url</find>
-      <find>BROKER_URI</find>
-      <find>curl_get_kpi</find>
-      <find>token = ktoken.get_token()</find>
-      <find>last_cache</find>
       <find>Enum</find>
       <find>enums.FM_PROBABLE_CAUSE</find>
       <find>2032693</find>
@@ -90,15 +114,25 @@
       <find>minor_id</find>
       <find>EVENT</find>
       <find>SHELL_CHECK_REGION</find>
-      <find>conf</find>
       <find>exeShellCmd</find>
       <find>timer</find>
       <find>source</find>
-      <find>region</find>
       <find>threading</find>
       <find>print</find>
       <find>sl</find>
       <find>CMCC_LA_DATA_DIR</find>
+      <find>rabbitmq-server</find>
+      <find>ddata</find>
+      <find>vm_name</find>
+      <find>false</find>
+      <find>conf</find>
+      <find>region</find>
+      <find>Tenant</find>
+      <find>nova_last_cache</find>
+      <find />
+      <find>self.alarm_item</find>
+      <find>cinder_res的返回值是</find>
+      <find>conpute</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -107,22 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/stop_cpu_stress.py" />
-        <option value="$PROJECT_DIR$/cpu_occupy.py" />
-        <option value="$PROJECT_DIR$/inputtest.py" />
-        <option value="$PROJECT_DIR$/start_cpu_stress.py" />
-        <option value="$PROJECT_DIR$/stop_cpu_stress.sh" />
-        <option value="$PROJECT_DIR$/test/while测试.py" />
-        <option value="$PROJECT_DIR$/test/migrate_and_keep_alive.py" />
-        <option value="$PROJECT_DIR$/migrate_and_keep_alive.py" />
-        <option value="$PROJECT_DIR$/test/字符串拼接test.py" />
-        <option value="$PROJECT_DIR$/test/str.py" />
-        <option value="$PROJECT_DIR$/test/vm_last_status.txt" />
-        <option value="$PROJECT_DIR$/test/修改文件后缀名测试.py" />
-        <option value="$PROJECT_DIR$/test/字符串按行读取测试.py" />
-        <option value="$USER_HOME$/Desktop/nova-get-request-api.py" />
-        <option value="$PROJECT_DIR$/test/test.json" />
-        <option value="$PROJECT_DIR$/test/json测试.py" />
         <option value="$PROJECT_DIR$/test/list.py" />
         <option value="$PROJECT_DIR$/test/list变化.py" />
         <option value="$PROJECT_DIR$/dict.py" />
@@ -153,11 +171,27 @@
         <option value="$PROJECT_DIR$/libvirtevent_181227.py" />
         <option value="$PROJECT_DIR$/test/时间测试.py" />
         <option value="$PROJECT_DIR$/libvirtevent_181228.py" />
-        <option value="$PROJECT_DIR$/libvirtevent_181228装饰器版本.py" />
-        <option value="$PROJECT_DIR$/service_supervision_bak.py" />
-        <option value="$PROJECT_DIR$/service_supervision.py" />
         <option value="$PROJECT_DIR$/service_supervisionecho.sh" />
         <option value="$PROJECT_DIR$/mysql_op.py" />
+        <option value="$PROJECT_DIR$/service_supervision_bak.py" />
+        <option value="$PROJECT_DIR$/mysql_ca_table.sql" />
+        <option value="$PROJECT_DIR$/mysql_op_190107.py" />
+        <option value="$PROJECT_DIR$/service_supervision_190107.py" />
+        <option value="$PROJECT_DIR$/service_supervision.py" />
+        <option value="$PROJECT_DIR$/test/split_test.py" />
+        <option value="$PROJECT_DIR$/libvirtevent_patch.py" />
+        <option value="$PROJECT_DIR$/libvirtevent_181228装饰器版本.py" />
+        <option value="$PROJECT_DIR$/test/gaojing.py" />
+        <option value="$PROJECT_DIR$/libvirtevent_190109.py" />
+        <option value="$PROJECT_DIR$/test/获取告警列表.py" />
+        <option value="$PROJECT_DIR$/test/vm切片测试.py" />
+        <option value="$PROJECT_DIR$/test/类中使用timmer范例.py" />
+        <option value="$PROJECT_DIR$/test/类中timmer测试.py" />
+        <option value="$PROJECT_DIR$/test/手动写入告警.py" />
+        <option value="$PROJECT_DIR$/test/手动清除告警.py" />
+        <option value="$PROJECT_DIR$/vm-external-storage-monitor_0109.py" />
+        <option value="$PROJECT_DIR$/test/nova_list_test.py" />
+        <option value="$PROJECT_DIR$/vm-external-storage-monitor_test.py" />
       </list>
     </option>
   </component>
@@ -189,6 +223,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,11 +231,15 @@
               <item name="cmcc_alarm" type="b2602c69:ProjectViewProjectNode" />
               <item name="cmcc_alarm" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="cmcc_alarm" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cmcc_alarm" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -208,16 +247,17 @@
     <property name="last_opened_file_path" value="D:/code/vue文档例子" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\cmcc_alarm\test" />
+      <recent name="D:\code\cmcc_alarm" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\cmcc_alarm\test" />
       <recent name="D:\code\cmcc_alarm" />
       <recent name="D:\code\cmcc_alarm\test" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\code\cmcc_alarm" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -232,7 +272,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.时间测试">
+  <component name="RunManager" selected="Python.类中timmer测试">
     <configuration name="时间测试" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cmcc_alarm" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -252,7 +292,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="dict比较" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="split_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cmcc_alarm" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -265,45 +305,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/dict比较.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="dict增加元素" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="cmcc_alarm" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dict增加元素.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="mysql函数" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="cmcc_alarm" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/mysql函数.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/split_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -347,20 +349,58 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="类中timmer测试" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="cmcc_alarm" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/类中timmer测试.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="vm切片测试" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="cmcc_alarm" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/vm切片测试.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <list>
-      <item itemvalue="Python.dict比较" />
-      <item itemvalue="Python.mysql函数" />
       <item itemvalue="Python.多线程test" />
-      <item itemvalue="Python.time格式测试" />
       <item itemvalue="Python.时间测试" />
+      <item itemvalue="Python.split_test" />
+      <item itemvalue="Python.vm切片测试" />
+      <item itemvalue="Python.类中timmer测试" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.类中timmer测试" />
+        <item itemvalue="Python.vm切片测试" />
+        <item itemvalue="Python.split_test" />
         <item itemvalue="Python.时间测试" />
-        <item itemvalue="Python.time格式测试" />
         <item itemvalue="Python.多线程test" />
-        <item itemvalue="Python.mysql函数" />
-        <item itemvalue="Python.dict比较" />
       </list>
     </recent_temporary>
   </component>
@@ -386,23 +426,46 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3298969" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.321489" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3281787" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.30455258" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2893401" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32318106" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16414523" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3298969" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993232" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3298969" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3298969" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16414523" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2893401" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3298969" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32318106" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="SciView" order="4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993232" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -412,224 +475,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/120276258/__builtin__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="2525" column="8" selection-start-line="2525" selection-start-column="8" selection-end-line="2525" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/nova-get-request-api.py" />
-    <entry file="file://$PROJECT_DIR$/test/list变化.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/json测试.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/dictnone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stop_cpu_stress.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="53" lean-forward="true" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cpu_occupy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/start_cpu_stress.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/traffic-create-mysql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stop_cpu_stress.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/remove_empty_directory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/get_alarm_time.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/dict增加元素.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="10" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vm_monitor_181222.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="102" column="32" selection-start-line="101" selection-start-column="12" selection-end-line="103" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libvirt-event-time-adjust.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="63" column="10" lean-forward="true" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/traffic-link-monitor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vm_monitor_181223.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="15" lean-forward="true" selection-end-line="189" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/keep_alive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/whiletest2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/类的调用.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/while测试.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/keep_alive集成版本.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="91" column="89" selection-start-line="91" selection-start-column="66" selection-end-line="91" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/mysql函数.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="9" selection-start-line="1" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vm_monitor_181224.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="201" lean-forward="true" selection-start-line="201" selection-end-line="201" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vm_monitor多线程.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="86" column="84" lean-forward="true" selection-start-line="86" selection-start-column="12" selection-end-line="86" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/多线程test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vm_monitor_12202142.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="60" column="8" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/keep_alive.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vm_monitor_1811225_1841.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
-          <caret line="98" column="52" lean-forward="true" selection-start-line="98" selection-start-column="52" selection-end-line="98" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/watchmen-fmevent-operate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="10" lean-forward="true" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libvirtevent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="39" selection-end-line="149" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/update_snmpdconf_compute.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/time格式测试.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -668,13 +517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sriov-link-monitor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="40" column="12" lean-forward="true" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/时间测试.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -682,34 +524,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libvirtevent_log.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evacuate_vm.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="379">
           <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service_supervision_bak.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service_supervision.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -727,47 +545,330 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/service_supervision_bak.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="43" column="51" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service_supervision.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" column="57" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql_ca_table.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="32" column="31" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql_op_echo.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql_op.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="12" lean-forward="true" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql_op_190107.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="54" lean-forward="true" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+          <folding>
+            <element signature="e#18#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql_op.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="23" lean-forward="true" selection-end-line="54" selection-end-column="44" />
+          <folding>
+            <element signature="e#18#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sriov-link-monitor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="40" column="12" lean-forward="true" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service_supervision_190107.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vm_monitor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="83" column="39" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update_snmpdconf_compute.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/注释libvirtevent.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="83" column="62" lean-forward="true" selection-start-line="83" selection-start-column="62" selection-end-line="83" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service_supervision.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="410">
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/split_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vm_monitor_1811225_1841.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="75" column="29" selection-start-line="75" selection-start-column="22" selection-end-line="75" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/libvirtevent_181228.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="105" column="21" selection-start-line="105" selection-start-column="21" selection-end-line="105" selection-end-column="21" />
+        <state relative-caret-position="506">
+          <caret line="104" column="19" lean-forward="true" selection-start-line="104" selection-start-column="19" selection-end-line="104" selection-end-column="19" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/gaojing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="14" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nova_list_return.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libvirtevent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="464">
+          <caret line="41" column="55" lean-forward="true" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
+          <folding>
+            <element signature="e#15#30#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libvirtevent_181228装饰器版本.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="380">
+          <caret line="115" column="34" lean-forward="true" selection-start-line="115" selection-start-column="34" selection-end-line="115" selection-end-column="34" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/service_supervision.py">
+    <entry file="file://$PROJECT_DIR$/libvirtevent_log.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="96">
+          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vm_monitor.py">
+    <entry file="file://$PROJECT_DIR$/nova-get-request-api.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keep_alive集成版本.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-512">
-          <caret line="50" column="18" selection-start-line="50" selection-start-column="18" selection-end-line="50" selection-end-column="18" />
+        <state relative-caret-position="234">
+          <caret line="91" column="89" selection-start-line="91" selection-start-column="66" selection-end-line="91" selection-end-column="92" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mysql_op.py">
+    <entry file="file://$PROJECT_DIR$/migrate_and_keep_alive.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="144">
+          <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrate_and_keep_alive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keep_alive.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libvirtevent_patch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="86" column="36" lean-forward="true" selection-start-line="86" selection-start-column="36" selection-end-line="86" selection-end-column="36" />
           <folding>
-            <element signature="e#18#28#0" expanded="true" />
-            <element signature="e#1579#1647#0" />
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vm-external-storage-monitor.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="47" column="15" selection-start-line="47" selection-start-column="10" selection-end-line="47" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/类中使用timmer范例.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" column="29" lean-forward="true" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/get_alarm_time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sriov-link-monitor.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/shlex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="87" column="8" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/手动写入告警.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding>
+            <element signature="e#2#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/手动清除告警.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libvirtevent_190109.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/类中timmer测试.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="20" column="25" lean-forward="true" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/获取告警列表.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="60" />
+          <folding>
+            <element signature="e#14#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/vm切片测试.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vm-external-storage-monitor_0109.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="194" column="21" lean-forward="true" selection-start-line="194" selection-start-column="21" selection-end-line="194" selection-end-column="21" />
+          <folding>
+            <element signature="e#15#40#0" expanded="true" />
+            <element signature="e#1988#2515#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/nova_list_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="120" column="12" selection-start-line="120" selection-start-column="12" selection-end-line="120" selection-end-column="12" />
+          <folding>
+            <element signature="e#15#40#0" expanded="true" />
+            <element signature="e#1988#2515#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vm-external-storage-monitor_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="229" column="32" lean-forward="true" selection-start-line="229" selection-start-column="32" selection-end-line="229" selection-end-column="32" />
+          <folding>
+            <element signature="e#15#40#0" expanded="true" />
+            <element signature="e#1909#2436#1" />
           </folding>
         </state>
       </provider>

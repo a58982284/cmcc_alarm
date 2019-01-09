@@ -1,4 +1,4 @@
-mysql_ca_table.sql
+-- mysql_ca_table.sql
 -- MySQL dump 10.13  Distrib 5.6.37, for debian-linux-gnu (x86_64)
 --
 -- Host: 192.168.42.28    Database: ca
